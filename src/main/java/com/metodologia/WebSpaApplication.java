@@ -14,18 +14,4 @@ public class WebSpaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(WebSpaApplication.class, args);
 	}
-
-	@Configuration
-	public static class MyConfiguration{
-		@Bean
-		public WebMvcConfigurer corsConfigurer(){
-			return new WebMvcConfigurer(){
-			@Override
-			public void addCorsMappings(CorsRegistry registry){
-				registry.addMapping("/**")
-					.allowedMethods("HEAD","GET","PUT","POST","DELETE","PATCH");
-			}
-		};
-	}
-}
 }
