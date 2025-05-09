@@ -1,5 +1,8 @@
-FROM amazoncorretto:17-alpine-jdk
+FROM maven:3-eclipse-temurin-17 AS build
+COPY . .
+RUN mvn clean package -DskipTests
 
-COPY target/web-spa-0.0.1-SNAPSHOT.jar /api-v1.jar
-
-ENTRYPOINT ["java", "-jar", "/api-v1.jar"]
+FROM eclipse-temurin:17-alpine
+COPY --from=build /target/*.jar demo.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","demo.jar"]
