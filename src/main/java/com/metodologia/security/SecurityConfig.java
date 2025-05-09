@@ -42,7 +42,7 @@ public class SecurityConfig {
         return httpSecurity
             .csrf(config -> config.disable())
             .authorizeHttpRequests(auth -> {
-                auth.requestMatchers("/hello", "/createUser", "/h2-console/**").permitAll();
+                auth.requestMatchers("/hello", "/createUser").permitAll();
                 auth.anyRequest().authenticated();
             })
             .sessionManagement(session ->{
