@@ -48,7 +48,7 @@ public class PrincipalController {
         return "hola no";
     }
 
-    @PostMapping("/register")
+    @PostMapping("/createUser")
     public ResponseEntity<?> createUser(@Valid @RequestBody CreateUserDTO createUserDTO){
         
         Set<RoleEntity> roles = createUserDTO.getRoles().stream()
