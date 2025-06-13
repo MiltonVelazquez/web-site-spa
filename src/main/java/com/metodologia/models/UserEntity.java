@@ -46,9 +46,8 @@ public class UserEntity {
 	private String apellido;
 	@Column(name = "dni", length = 8)
 	private int dni;
-
-    @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Numero> numeros = new ArrayList<>();
+    @Column(name = "numero")
+    private int numero;
 
     @ManyToMany(fetch = FetchType.EAGER, targetEntity = RoleEntity.class, cascade = CascadeType.PERSIST)
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))

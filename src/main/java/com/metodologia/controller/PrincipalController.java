@@ -2,22 +2,17 @@ package com.metodologia.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.metodologia.controller.request.CreateTurnDTO;
 import com.metodologia.controller.request.CreateUserDTO;
 import com.metodologia.models.ERole;
 import com.metodologia.models.RoleEntity;
 import com.metodologia.models.UserEntity;
-import com.metodologia.models.ServicioSolicitado;
 import com.metodologia.repositories.UserRepository;
 import com.metodologia.repositories.RoleRepository;
-import com.metodologia.repositories.ServicioSolicitadoRepository;
 
 import jakarta.validation.Valid;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -50,6 +45,8 @@ public class PrincipalController {
             .username(createUserDTO.getUsername())
             .password(passwordEncoder.encode(createUserDTO.getPassword()))
             .roles(roles)
+            .nombre(createUserDTO.getNombre())
+            .numero(createUserDTO.getNumero())
             .build();
         
         userRepository.save(userEntity);

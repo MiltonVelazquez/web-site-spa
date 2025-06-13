@@ -32,4 +32,7 @@ public class Servicio {
 
     @Column(name = "tiempo")
     private int tiempo;
+
+    @Column(name = "descripcion")
+    private String descripcion;
 }

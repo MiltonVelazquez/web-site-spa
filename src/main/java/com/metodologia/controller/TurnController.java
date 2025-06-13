@@ -23,7 +23,6 @@ import com.metodologia.models.UserEntity;
 import com.metodologia.repositories.ServicioRepository;
 import com.metodologia.repositories.ServicioSolicitadoRepository;
 import com.metodologia.repositories.UserRepository;
-import com.metodologia.controller.request.CreateTurnDTO;
 import jakarta.validation.Valid;
 
 @RestController

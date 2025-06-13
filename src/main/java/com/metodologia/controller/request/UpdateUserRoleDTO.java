@@ -1,5 +1,6 @@
 package com.metodologia.controller.request;
 
+import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,9 +8,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateUserDTO {
-    private String username;
-    private String password;
-    private int numero;
-    private String nombre;
+public class UpdateUserRoleDTO {
+    private Set<String> roles; // Ej: ["ADMIN", "USER"]
 }

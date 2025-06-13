@@ -11,4 +11,5 @@ public class CreateServiceDTO {
     private String nombre;
     private int precio;
     private int tiempo;
+    private String descripcion;
 }

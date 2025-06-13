@@ -28,7 +28,8 @@ public class ServiceController {
         Servicio servicio = Servicio.builder()
             .nombre(createServiceDTO.getNombre())
             .precio(createServiceDTO.getPrecio())
-            .tiempo(createServiceDTO.getPrecio())
+            .tiempo(createServiceDTO.getTiempo())
+            .descripcion(createServiceDTO.getDescripcion())
         .build();
         
         servicioRepo.save(servicio);
