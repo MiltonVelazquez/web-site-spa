@@ -45,7 +45,9 @@ public class SecurityConfig {
                 config.setAllowedOrigins(List.of(
                     "http://localhost:5173",
                     "https://8lzpw2-5173.csb.app", // tu proyecto en CodeSandbox
-                    "https://*.csb.app" // opcional si querés permitir todos los sandbox
+                    "https://*.csb.app",
+                    "https://nazabe.github.io/mds",
+                    "https://nazabe.github.io"// opcional si querés permitir todos los sandbox
                 ));
                 config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
                 config.setAllowedHeaders(List.of("*"));

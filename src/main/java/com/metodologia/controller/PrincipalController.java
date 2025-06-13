@@ -36,7 +36,6 @@ public class PrincipalController {
 
     @Autowired
     private RoleRepository roleRepository;
-
     
     @PostMapping("/register")
     public ResponseEntity<?> createUser(@Valid @RequestBody CreateUserDTO createUserDTO){
