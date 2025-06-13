@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -46,10 +46,10 @@ public class UserEntity {
 	private String apellido;
 	@Column(name = "dni", length = 8)
 	private int dni;
+
     @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Numero> numeros = new ArrayList<>();
-    //@OneToMany(mappedBy = "persona", cascade = CascadeType.ALL, orphanRemoval = true)
-    //private List<ServicioSolicitado> servicios = new ArrayList<>();
+
     @ManyToMany(fetch = FetchType.EAGER, targetEntity = RoleEntity.class, cascade = CascadeType.PERSIST)
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<RoleEntity> roles;
@@ -57,5 +57,12 @@ public class UserEntity {
     return roles.stream()
         .map(role -> new SimpleGrantedAuthority("ROLE_" + role.getName().name()))
         .collect(Collectors.toList());
-}
+    }
+    @OneToMany(mappedBy = "solicitante")
+    @JsonIgnore
+    private List<ServicioSolicitado> serviciosSolicitados;
+
+    @OneToMany(mappedBy = "profesional")
+    @JsonIgnore
+    private List<ServicioSolicitado> serviciosBrindados;    
 }

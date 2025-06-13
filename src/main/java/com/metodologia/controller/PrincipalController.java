@@ -53,7 +53,7 @@ public class PrincipalController {
             .build();
         
         userRepository.save(userEntity);
-        return ResponseEntity.ok(userEntity);
+        return ResponseEntity.ok("Usuario creado");
     }
 
     

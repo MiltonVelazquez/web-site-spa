@@ -9,11 +9,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateTurnDTO {
-    private Long solicitanteId;
-    private Long profesionalId;
-    private List<Long> servicioIds;
+public class TurnDetail {
+    private Long id;
     private String fecha;
     private String hora;
-    private String estado; // "PENDIENTE", "FINALIZADO", etc.
+    private String estado;
+
+    private CreateUserDTO solicitante;
+    private CreateUserDTO profesional;
+    private List<CreateServiceDTO> servicios;
 }

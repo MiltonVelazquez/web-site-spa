@@ -24,8 +24,8 @@ public class Servicio {
     @Column(name = "nombre", unique = true)
     private String nombre;
 
-    //@OneToMany(mappedBy = "servicio", cascade = CascadeType.ALL, orphanRemoval = true)
-    //private List<ServicioSolicitado> servicios = new ArrayList<>();
+    //@ManyToMany(mappedBy = "servicios")
+   // private List<ServicioSolicitado> solicitudes;
 
     @Column(name = "precio")
     private int precio;
