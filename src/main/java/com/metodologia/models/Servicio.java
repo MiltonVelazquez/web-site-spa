@@ -21,9 +21,15 @@ public class Servicio {
     @Column(name = "id")
     private Long id;
     
-    @Column(name = "tipo", unique = true)
-    private int tipo;
+    @Column(name = "nombre", unique = true)
+    private String nombre;
 
-    @OneToMany(mappedBy = "servicio", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ServicioSolicitado> servicios = new ArrayList<>();
+    //@OneToMany(mappedBy = "servicio", cascade = CascadeType.ALL, orphanRemoval = true)
+    //private List<ServicioSolicitado> servicios = new ArrayList<>();
+
+    @Column(name = "precio")
+    private int precio;
+
+    @Column(name = "tiempo")
+    private int tiempo;
 }

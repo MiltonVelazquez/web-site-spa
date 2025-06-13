@@ -53,7 +53,7 @@ public class SecurityConfig {
                 return config;
             }))
             .authorizeHttpRequests(auth -> {
-                auth.requestMatchers("/hello", "/createUser", "/login", "/solicitarTurno").permitAll();
+                auth.requestMatchers("/payment/**","/register", "/login", "/solicitarTurno", "/deleteUser/**", "/listarUser", "/user/**", "/crearServicio", "/deleteServicio/**", "/listaServicio", "/servicio/**", "/deleteTurn/**", "/listTurn", "/turn/**").permitAll();
                 auth.anyRequest().authenticated();
             })
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
