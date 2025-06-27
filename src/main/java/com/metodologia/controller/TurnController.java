@@ -213,4 +213,29 @@ public ResponseEntity<String> createTurnWithPayment(@Valid @RequestBody PaymentC
         return servicioSolicitadoRepo.findById(turnID);
     }
 
+    @GetMapping("/listTurnFinalizado/{profesionalId}")
+public List<ServicioSolicitado> getFinalizados(@PathVariable Long profesionalId) {
+    return servicioSolicitadoRepo.findByEstadoAndProfesionalId(EState.FINALIZADO, profesionalId);
+}
+
+@GetMapping("/listTurnEnProceso/{profesionalId}")
+public List<ServicioSolicitado> getEnProceso(@PathVariable Long profesionalId) {
+    return servicioSolicitadoRepo.findByEstadoAndProfesionalId(EState.EN_PROCESO, profesionalId);
+}
+
+@GetMapping("/listTurnPendiente/{profesionalId}")
+public List<ServicioSolicitado> getPendiente(@PathVariable Long profesionalId) {
+    return servicioSolicitadoRepo.findByEstadoAndProfesionalId(EState.PENDIENTE, profesionalId);
+}
+
+@GetMapping("/listTurnCancelado/{profesionalId}")
+public List<ServicioSolicitado> getCancelado(@PathVariable Long profesionalId) {
+    return servicioSolicitadoRepo.findByEstadoAndProfesionalId(EState.CANCELADO, profesionalId);
+}
+
+@GetMapping("/listTurnPendientePago/{profesionalId}")
+public List<ServicioSolicitado> getPendientePago(@PathVariable Long profesionalId) {
+    return servicioSolicitadoRepo.findByEstadoAndProfesionalId(EState.PENDIENTE_PAGO, profesionalId);
+}
+
 }

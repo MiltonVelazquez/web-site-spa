@@ -2,6 +2,8 @@ package com.metodologia.models;
 
 import jakarta.persistence.*;
 import lombok.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Data
@@ -17,10 +19,12 @@ public class ServicioSolicitadoDetalle {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "servicio_id", nullable = false)
+    @JsonIgnore
     private Servicio servicio;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "servicio_solicitado_id", nullable = false)
+    @JsonIgnore
     private ServicioSolicitado servicioSolicitado;
 
     // Podés agregar campos extra si querés, como:

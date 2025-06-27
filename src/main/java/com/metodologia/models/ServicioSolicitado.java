@@ -3,6 +3,7 @@ package com.metodologia.models;
 import java.util.List;
 import jakarta.persistence.*;
 import lombok.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Data
 @AllArgsConstructor
@@ -22,6 +23,7 @@ public class ServicioSolicitado {
 
     @ManyToOne
     @JoinColumn(name = "profesional_id", nullable = false)
+    @JsonIgnore
     private UserEntity profesional;
 
     @Column(name = "fecha", nullable = false)

@@ -3,6 +3,8 @@ package com.metodologia.models;
 import java.util.List;
 import jakarta.persistence.*;
 import lombok.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Data
 @AllArgsConstructor
@@ -29,5 +31,6 @@ public class Servicio {
     private String descripcion;
 
     @OneToMany(mappedBy = "servicio", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<ServicioSolicitadoDetalle> detalles; // opcional
 }

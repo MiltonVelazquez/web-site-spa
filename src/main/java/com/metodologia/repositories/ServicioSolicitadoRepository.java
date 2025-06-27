@@ -12,4 +12,6 @@ import org.springframework.stereotype.Repository;
 public interface ServicioSolicitadoRepository extends CrudRepository<ServicioSolicitado, Long>{
     List<ServicioSolicitado> findByEstado(EState estado);
     List<ServicioSolicitado> findBySolicitanteIdAndEstado(Long solicitanteId, String estado);
+    List<ServicioSolicitado> findByEstadoAndProfesionalId(EState estado, Long profesionalId);
+
 }
